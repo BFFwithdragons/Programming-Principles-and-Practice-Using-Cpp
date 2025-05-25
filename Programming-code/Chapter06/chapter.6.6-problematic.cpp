@@ -39,6 +39,7 @@ Token get_token()    // read a token from cin
         }
     default:
         error("Bad token");
+        return 1;
     }
 }
 
@@ -67,6 +68,7 @@ double primary()     // read and evaluate a Primary
         return t.value;  // return the number's value
     default:
         error("primary expected");
+        return 1;
     }
 }
 //------------------------------------------------------------------------------
@@ -74,7 +76,7 @@ double primary()     // read and evaluate a Primary
 int main()
 try {
     while (cin)
-        cout << expression() << '\n';
+        cout << "=" << expression() << '\n';
     keep_window_open();
 }
 catch (exception& e) {

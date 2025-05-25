@@ -64,7 +64,7 @@ Token Token_stream::get()
     switch (ch) {
     case ';':    // for "print"
     case 'q':    // for "quit"
-    case '(': case ')': case '+': case '-': case '*': case '/': 
+    case '(': case ')': case '{': case '}': case '+': case '-': case '*': case '!': case '/': 
         return Token(ch);        // let each character represent itself
     case '.':
     case '0': case '1': case '2': case '3': case '4':
@@ -87,6 +87,7 @@ Token_stream ts;        // provides get() and putback()
 //------------------------------------------------------------------------------
 
 double expression();    // declaration so that primary() can call expression()
+double factorial(int number);
 
 //------------------------------------------------------------------------------
 
@@ -100,6 +101,13 @@ double primary()
             double d = expression();
             t = ts.get();
             if (t.kind != ')') error("')' expected");
+            return d;
+        }
+    case '{':    // handle '(' expression ')'
+        {    
+            double d = expression();
+            t = ts.get();
+            if (t.kind != '}') error("'}' expected");
             return d;
         }
     case '8':            // we use '8' to represent a number
@@ -121,6 +129,10 @@ double term()
         switch (t.kind) {
         case '*':
             left *= primary();
+            t = ts.get();
+            break;
+        case '!':
+            left = factorial(left);
             t = ts.get();
             break;
         case '/':
@@ -163,6 +175,13 @@ double expression()
     }
 }
 
+double factorial(int number) {
+    double factorialvalue = number;
+    for(int i = number - 1; i > 0; i--) {
+        factorialvalue *= i;
+    }
+    return factorialvalue;
+}
 //------------------------------------------------------------------------------
 
 int main()
