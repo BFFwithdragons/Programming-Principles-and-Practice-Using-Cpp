@@ -14,7 +14,7 @@ int main(){
     while(cin) {
         bool b = sentence();
         if (b) cout << "Ok" << endl;
-        else cout << "not Ok" <<endl;
+        else cout << "not Ok" << endl;
         cout << "Try Again please" << endl;
     }
     return 0;
