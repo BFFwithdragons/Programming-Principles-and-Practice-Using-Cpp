@@ -182,6 +182,7 @@ try
 }
 catch (exception& e) {
     cerr << "error: " << e.what() << '\n'; 
+    //
     return 1;
 }
 catch (...) {

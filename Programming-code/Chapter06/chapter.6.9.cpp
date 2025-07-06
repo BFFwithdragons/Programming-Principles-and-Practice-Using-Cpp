@@ -188,19 +188,30 @@ int main()
 try
 {
     double val = 0;
+    cout << "> ";
     while (cin) {
         Token t = ts.get();
 
-        if (t.kind == 'q') break; // 'q' for quit
-        if (t.kind == ';')        // ';' for "print now"
-            cout << "=" << val << '\n';
-        else
-            ts.putback(t);
-        val = expression();
+        while(t.kind == ';') { // ';' for "print now"
+            t = ts.get();
+        }
+        if (t.kind == 'q') {
+            keep_window_open(); // 'q' for "quit"
+            return 0;
+        }
+        ts.putback(t);
+        cout << "= " << expression() << "\n"; // print result
+        cout << "> ";
     }
+    keep_window_open();
+    return 0;
 }
-catch (exception& e) {
+catch (runtime_error& e) {
     cerr << "error: " << e.what() << '\n'; 
+    cout << "Enter ~ to close the window\n";
+    for(char ch; cin >> ch;) {
+        if(ch == '~') return 1;
+    }
     return 1;
 }
 catch (...) {
