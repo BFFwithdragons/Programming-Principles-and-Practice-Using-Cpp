@@ -53,6 +53,7 @@
     Primary:
         Number
         Name
+        Square Root (Expression)
         ( Expression )
         - Primary
         + Primary
@@ -132,10 +133,12 @@ Token Token_stream::get() // read characters from cin and compose a Token
     switch (ch) {
     case quit:
     case print:
+    case 'r':
     case '(':
     case ')':
     case '+':
     case '-':
+    case '^':
     case '*':
     case '/': 
     case '%':
@@ -252,6 +255,15 @@ double primary()
 {
     Token t = ts.get();
     switch (t.kind) {
+        case 'r':           // handles squre root
+        {
+            t = ts.get(); //Gets the '(' for expression
+            double d = expression();
+            t = ts.get();
+            if (t.kind != ')') error("')' expected");
+            if(d < 0) error("Negetive number couldn't be squre rooted");
+            return sqrt(d);
+        }
     case '(':           // handle '(' expression ')'
         {
             double d = expression();
@@ -282,6 +294,10 @@ double term()
 
     while(true) {
         switch (t.kind) {
+        case '^':
+            left = pow(left, primary());
+            t = ts.get();
+            break;
         case '*':
             left *= primary();
             t = ts.get();
