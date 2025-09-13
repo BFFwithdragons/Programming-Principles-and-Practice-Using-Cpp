@@ -19,7 +19,7 @@ void reversevector(const vector<int>& v) {
 
 namespace nocopy {
     void reversevector(vector<int>& v) {
-        for(int i = 0; i <= floor(v.size() / 2); i++) {
+        for(int i = 0; i < floor(v.size() / 2); i++) {
             swap(v[i], v[v.size() - i - 1]);
         }
     }
@@ -50,10 +50,10 @@ int main() {
     fibonacci(6, 7, fibonaccinumberes, 5);
     print("Fibonacci: ", fibonaccinumberes);
 
-    vector<int> reversalvector = {9, 8, 7, 6, 5, 4, 3, 7, 1};
+    vector<int> reversalvector = {9, 8, 7, 6, 5, 4, 3, 2, 1};
     newcopy::reversevector(reversalvector);
 
-    vector<int> nocopyreversalvector = {9, 8, 7, 6, 5, 4, 3, 7, 1};
+    vector<int> nocopyreversalvector = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     nocopy::reversevector(nocopyreversalvector);
     print("Reversed no copy: ", nocopyreversalvector);
 }
