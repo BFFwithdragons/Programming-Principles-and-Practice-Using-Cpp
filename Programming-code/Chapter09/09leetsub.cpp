@@ -49,8 +49,8 @@ vector<string> leetsub(string password) {
 
     for(int i = 0; i < subint.size(); ++i) {
         for(int i2 = i; i2 < subint.size(); ++i2) {
-            password[subint[i2]] = leetchar(password[subint[i2]]);
-            leetoutputs.push_back(password);
+                password[subint[i2]] = leetchar(password[subint[i2]]);
+                leetoutputs.push_back(password);
         }
         password = password_copy;
     }
