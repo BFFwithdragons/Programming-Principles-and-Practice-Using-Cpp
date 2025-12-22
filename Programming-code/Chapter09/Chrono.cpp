@@ -3,7 +3,6 @@
 // This is example code from Chapter 9.8 "The Date class" of 
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
-
 #include "Chrono.h"
 
 namespace Chrono {
@@ -172,22 +171,22 @@ Date next_weekday(const Date& d)
 
 //------------------------------------------------------------------------------
 
-int main()
-try
-{
-    Chrono::Date holiday(1978, Chrono::Date::jul, 4); // initialization
-    Chrono::Date d2 = Chrono::next_Sunday(holiday);
-    Chrono::Day  d  = day_of_week(d2);
-    cout << "holiday is " << holiday << " d2 is " << d2 << endl;
-    return holiday != d2;
-}
-catch (Chrono::Date::Invalid&) {
-    cerr << "error: Invalid date\n"; 
-    return 1;
-}
-catch (...) {
-    cerr << "Oops: unknown exception!\n"; 
-    return 2;
-}
+// int main()
+// try
+// {
+//     Chrono::Date holiday(1978, Chrono::Date::jul, 4); // initialization
+//     Chrono::Date d2 = Chrono::next_Sunday(holiday);
+//     Chrono::Day  d  = day_of_week(d2);
+//     cout << "holiday is " << holiday << " d2 is " << d2 << endl;
+//     return holiday != d2;
+// }
+// catch (Chrono::Date::Invalid&) {
+//     cerr << "error: Invalid date\n"; 
+//     return 1;
+// }
+// catch (...) {
+//     cerr << "Oops: unknown exception!\n"; 
+//     return 2;
+// }
 
 //------------------------------------------------------------------------------
