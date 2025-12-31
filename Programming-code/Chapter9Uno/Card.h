@@ -15,6 +15,10 @@ class Card {
     public:
         Card(Color c, Number n)
         : color(c), number(n) {}
+
+        Number get_number() const {return number;}
+        Color get_color() const {return color;}
+
     private:
         Number number;
         Color color;
