@@ -1,7 +1,9 @@
+#pragma once
+
 #include "std_lib_facilities.h"
 
 enum class Color {
-    red=1, yellow, green, blue
+    red, yellow, green, blue
 };
 
 enum class Number {
@@ -22,5 +24,6 @@ class Card {
     private:
         Number number;
         Color color;
-        
 };
+
+

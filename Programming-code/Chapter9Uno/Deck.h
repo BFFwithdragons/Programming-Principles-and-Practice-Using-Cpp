@@ -15,8 +15,11 @@ class Deck {
         vector<Card> get_discard_pile() const {return discard_pile;}
 
         Card draw();
+        vector<Card> draw_amount(int amount);
         void shuffle();
     private:
         vector<Card> draw_pile;
         vector<Card> discard_pile;
 };
+
+ostream& operator<<(ostream& os, Deck& d);
