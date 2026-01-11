@@ -26,4 +26,4 @@ class Card {
         Color color;
 };
 
-
+bool operator==(const Card& a, const Card& b);

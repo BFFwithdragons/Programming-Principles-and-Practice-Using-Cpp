@@ -13,7 +13,7 @@ vector<Card> Deck::draw_amount(int amount) {
 }
 
 void Deck::shuffle() {
-    vector<Card> draw_pile_copy = draw_pile;
+    vector<Card> draw_pile_copy;
     //Random generation code;
     while(draw_pile.size() > 0) {
     int rng; // rng = randon_number(0, draw_pile.size() - 1);
@@ -24,11 +24,11 @@ void Deck::shuffle() {
     draw_pile = draw_pile_copy;
 }
 
-ostream& operator<<(ostream& os,  Deck& d)
+ostream& operator<<(ostream& os,  vector<Card> d)
 {
-    for (int i = 0; i < d.get_draw_pile().size(); i++) {
-    os << '(' << static_cast<int>(d.get_draw_pile()[i].get_color())
-              << ',' << static_cast<int>(d.get_draw_pile()[i].get_number())
+    for (int i = 0; i < d.size(); i++) {
+    os << '(' << static_cast<int>(d[i].get_color())
+              << ',' << static_cast<int>(d[i].get_number())
               << ')' << endl;
     }
     return os;

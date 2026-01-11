@@ -22,4 +22,4 @@ class Deck {
         vector<Card> discard_pile;
 };
 
-ostream& operator<<(ostream& os, Deck& d);
+ostream& operator<<(ostream& os,  vector<Card> d);
