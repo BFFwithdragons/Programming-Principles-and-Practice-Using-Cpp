@@ -3,11 +3,14 @@
 
 int main() {
     Deck d;
-    Player p;
+    Player p("Ellie Chung");
     cout << d.get_draw_pile() << endl;
-    cout << "finished" << endl;
-    Card c = d.draw();
-    p.add_card(d.draw());
-    cout << p.get_hand();
+    p.add_cards(d.draw_amount(7));
+    cout << "hand" << endl;
+    cout << p; 
+    // cout << "finished" << endl;
+    // Card c = d.draw();
+    // p.add_card(d.draw());
+    // cout << p.get_hand();
 
 }

@@ -5,6 +5,8 @@
 
 class Player {
     public:
+        Player(string n)
+        : name(n) {}
         string get_name() const {return name;}
         vector<Card> get_hand() const {return hand;}
         void add_card(Card c) {hand.push_back(c);}
@@ -14,3 +16,5 @@ class Player {
         string name;
         vector<Card> hand;
 };
+
+ostream& operator<<(ostream& os,  Player h);

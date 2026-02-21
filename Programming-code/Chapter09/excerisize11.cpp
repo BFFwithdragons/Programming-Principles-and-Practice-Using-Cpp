@@ -4,9 +4,9 @@
 // "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
 //
 
-#include <iostream>
-
-using namespace std;
+#include "std_lib_facilities.h"
+// #include <iostream>
+// using namespace std;
 
 // file Chrono.h
 
@@ -233,13 +233,19 @@ Date next_weekday(const Date& d)
 
 Day next_workday(const Day& d) {
     if(d == saturday || d == sunday) return monday;
-    return;
+    return d;
 }
 
 //------------------------------------------------------------------------------
 
-Date week_of_year(const Date& d) {
-
+int week_of_year(const Date& d) {
+    vector<int> days_per_month = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int counter = 0;
+    for(int i = 1; i < d.month(); ++i) {
+        counter += days_per_month[i];
+    }
+    counter += d.day();
+    return floor(counter / 7);
 }
 //------------------------------------------------------------------------------
 
@@ -250,9 +256,11 @@ Date week_of_year(const Date& d) {
 int main()
 try
 {
+    Chrono::Date random_day(2025, Chrono::Date::feb, 28);
     Chrono::Date holiday(1978, Chrono::Date::jul, 4); // initialization
     Chrono::Date d2 = Chrono::next_Sunday(holiday);
     Chrono::Day  d  = day_of_week(d2);
+    cout << Chrono::week_of_year(random_day) << endl;
     cout << "holiday is " << holiday << " d2 is " << d2 << endl;
     return holiday != d2;
 }

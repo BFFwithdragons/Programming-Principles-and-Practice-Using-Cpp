@@ -1,5 +1,5 @@
 #include "Deck.h"
-
+#include "std_lib_facilities.h"
 Card Deck::draw() {
     Card drawed_card = draw_pile[0];
     draw_pile.erase(draw_pile.begin());
@@ -13,21 +13,16 @@ vector<Card> Deck::draw_amount(int amount) {
 }
 
 void Deck::shuffle() {
-    vector<Card> draw_pile_copy;
-    //Random generation code;
-    while(draw_pile.size() > 0) {
-    int rng; // rng = randon_number(0, draw_pile.size() - 1);
-    draw_pile_copy.push_back(draw_pile[rng]);
-    draw_pile.erase(draw_pile.begin() + rng);
-    }
+    for(int i = draw_pile.size(); i > 0; --i) {
+        swap(draw_pile[i], draw_pile[rand_int(0, i)]);
 
-    draw_pile = draw_pile_copy;
+    }
 }
 
 ostream& operator<<(ostream& os,  vector<Card> d)
 {
     for (int i = 0; i < d.size(); i++) {
-    os << '(' << static_cast<int>(d[i].get_color())
+    os << '(' << colorToString(d[i].get_color())
               << ',' << static_cast<int>(d[i].get_number())
               << ')' << endl;
     }

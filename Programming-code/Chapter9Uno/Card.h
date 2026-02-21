@@ -27,3 +27,5 @@ class Card {
 };
 
 bool operator==(const Card& a, const Card& b);
+
+string colorToString(Color c);
