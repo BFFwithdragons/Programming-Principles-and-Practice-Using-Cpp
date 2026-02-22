@@ -15,7 +15,6 @@ vector<Card> Deck::draw_amount(int amount) {
 void Deck::shuffle() {
     for(int i = draw_pile.size(); i > 0; --i) {
         swap(draw_pile[i], draw_pile[rand_int(0, i)]);
-
     }
 }
 

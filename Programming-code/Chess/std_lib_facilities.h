@@ -16,10 +16,8 @@
 #include <string>
 #include <sstream>
 #include <vector>
-#include <random>
 
 using namespace std;
-
 
 //------------------------------------------------------------------------------
 
@@ -55,13 +53,7 @@ inline void keep_window_open(const string& str)
 }
 
 //------------------------------------------------------------------------------
-inline int rand_int(int min, int max) {
-    static std::mt19937 ran(std::random_device{}());
-    std::uniform_int_distribution<int> dist(min, max);
-    return dist(ran);
-}
 
-//------------------------------------------------------------------------------
 // Helper function to show an error message
 inline void error(const string& errormessage)
 {
