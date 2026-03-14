@@ -6,11 +6,11 @@
 
 int main() {
     Game g;
-    g.start_game();
+    //g.start_game();
     Board b;
 
     b.render();
 
-    b.move_piece("d2", "d4");
+    b.move_piece("h1", "h7");
     b.render();
 }

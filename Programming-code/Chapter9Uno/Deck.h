@@ -17,6 +17,8 @@ class Deck {
         Card draw();
         vector<Card> draw_amount(int amount);
         void shuffle();
+
+        void discard(Card c) {discard_pile.push_back(c);}
     private:
         vector<Card> draw_pile;
         vector<Card> discard_pile;

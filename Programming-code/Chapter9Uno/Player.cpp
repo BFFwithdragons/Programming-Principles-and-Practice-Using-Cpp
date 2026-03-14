@@ -6,7 +6,7 @@ void Player::add_cards(vector<Card> c) {
 }
 
 Card Player::play_card(Card c) {
-    for(int i; i < hand.size(); ++i) {
+    for(int i = 0; i < hand.size(); ++i) {
         if(c == hand[i]) {
             hand.erase(hand.begin() + i);
             return c;

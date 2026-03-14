@@ -7,6 +7,12 @@ enum class Color {
 
 class Piece {
     public:
+        //Default constructor:
+        Piece() {
+            symbol = '-';
+            color = Color::none;
+        }
+
         Piece(char s, Color c)
         : symbol(s), color(c) {}
 
