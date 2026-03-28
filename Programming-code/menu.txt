@@ -1,0 +1,11 @@
+Matcha 48
+Chocolate 12
+Cookies-and-cream 18
+Ube 27
+Vanilla 10
+Lemon 30
+Guava 70
+Strawberry 20
+Red-velvet 60
+
+

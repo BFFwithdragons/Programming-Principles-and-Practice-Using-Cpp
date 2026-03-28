@@ -1,0 +1,3 @@
+Chocolate 20
+Vanilla 20
+Lemon 10

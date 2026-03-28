@@ -21,3 +21,4 @@ class Notation {
 };
 
 bool found_char(char search, string s);
+bool validate_notation (string notation);

@@ -25,4 +25,6 @@ Piece identify_piece(string notation, Color turn) {
         return start::black_pawn;
     }
 
+    return start::empty_space;
+
 }
