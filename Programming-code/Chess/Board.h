@@ -8,7 +8,8 @@ class Board {
         Board();
         void render();
         void move_piece(string original_place, string new_place);
-        vector<vector<Piece>> get_board() const {return board;} 
+        vector<vector<Piece>> get_board() const {return board;}
+        void find_movement(string Piece, string square);
     private:
         vector<vector<Piece>> board;
 };

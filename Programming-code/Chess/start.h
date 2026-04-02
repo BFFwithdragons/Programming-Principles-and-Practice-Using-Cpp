@@ -3,6 +3,13 @@
 
 namespace start {
 
+extern Piece pawn;
+extern Piece bishop;
+extern Piece knight;
+extern Piece rook;
+extern Piece queen;
+extern Piece king;
+
 extern Piece white_pawn;
 extern Piece white_bishop;
 extern Piece white_knight;

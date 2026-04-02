@@ -1,6 +1,13 @@
 #include "Chess.h"
 
 namespace start {
+Piece pawn('*', Color::none);
+Piece bishop('&', Color::none);
+Piece knight('@', Color::none);
+Piece rook('^', Color::none);
+Piece queen('$', Color::none);
+Piece king('+', Color::none);
+
 Piece white_pawn('*', Color::white);
 Piece white_bishop('&', Color::white);
 Piece white_knight('@', Color::white);

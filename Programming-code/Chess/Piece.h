@@ -1,5 +1,6 @@
 #pragma once
 #include "Chess.h"
+#include "std_lib_facilities.h"
 
 enum class Color {
         black, white, none
@@ -27,3 +28,4 @@ class Piece {
 };
 
 bool operator==(const Piece& a, const Piece& b);
+ostream& operator<<(ostream& os,  Piece p);

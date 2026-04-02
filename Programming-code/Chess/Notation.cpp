@@ -11,6 +11,14 @@ bool found_char(char search, string s) {
     return false;
 }
 
+int find_index(char search, string s) {
+    for(int i = 0; i < s.size(); ++i) {
+        if(s[i] == search) return i;
+    }
+
+    return -1; // Something went wrong
+}
+
 bool validate_notation (string notation) {
     int c = 0;
     if(notation[c] != 'N' && notation[c] != 'B' && notation[c] != 'R' && notation[c] != 'Q' && notation[c] != 'K') 
@@ -48,3 +56,4 @@ bool validate_notation (string notation) {
         return false;
 
 }
+
