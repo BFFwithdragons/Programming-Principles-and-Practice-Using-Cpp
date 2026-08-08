@@ -1,7 +1,18 @@
 #include "std_lib_facilities.h"
 #include "Chess.h"
 
+ostream& operator<<(ostream& os,  vector<vector<int>> v)
+{
+    for (int i = 0; i < v.size(); i++) {
+    os << i + 1 << ". " << '(' << v[i][0]
+              << ',' << v[i][1]
+              << ')'
+              << endl;
+    }
 
+
+    return os;
+}
 
 
 int main() {
@@ -70,5 +81,7 @@ int main() {
     b.move_piece("h1", "h7");
     b.render();
 
-    Notation("Re3");
+    Notation e("Re3");
+
+    cout << b.movement_bishop("e5") << endl;
 }

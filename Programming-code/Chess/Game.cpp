@@ -3,6 +3,10 @@ void Game::start_game() {
     b.render();
     cout << "\n" << "White's turn - ";
     cin >> move;
+    Notation playeronemove(move);
+
+
+
     // if(identify_piece(move, Color::white) == start::white_pawn) b.move_piece(, move);
 }
 

@@ -2,7 +2,7 @@
 long long int add_perfect_squares(long long int times);
 
 int main () {
-    cout << add_perfect_squares(391000);
+    cout << add_perfect_squares(966000);
 }
 
 

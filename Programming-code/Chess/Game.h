@@ -5,9 +5,9 @@ class Game {
     public:
         void start_game();
     private:
+        string move;
         Board b;
         Color turn;
-        string move;
 };
 
 Piece identify_piece(string notation, Color turn);

@@ -35,6 +35,73 @@ void Board::move_piece(string original_place, string new_place) {
     board[return_notation[0]][return_notation[1]] = moving_piece;
 }
 
+//Takes in a square and then returns all legal possibilities that a rook could move to.
+//The algorithem will be that either the x or y has to be the same. The value that is different will be changed from 1-8 all row/collums depending if it's x or y.
+//
+
+vector<vector<int>> Board::movement_rook(string square) {
+    vector<vector<int>> legal_moves;
+    
+    int x = squareToInt(square)[0];
+    int y = squareToInt(square)[1];
+
+    for(int i = 0; i < 8; i++) {
+        if(x != i) legal_moves.push_back({i, y});
+    }
+
+    for(int i = 0; i < 8; i++) {
+        if(y != i) legal_moves.push_back({x, i});
+    }
+
+    return legal_moves;
+
+
+}
+
+vector<vector<int>> Board::movement_bishop(string square) {
+    vector<vector<int>> legal_moves;
+    int x = squareToInt(square)[0];
+    int y = squareToInt(square)[1];
+
+    int x_counter = x;
+    int y_counter = y;
+
+    while(x_counter < 8 && y_counter < 8) {
+        if(x_counter != x && y_counter != y) legal_moves.push_back({x_counter, y_counter});        
+        x_counter++;
+        y_counter++;
+    }
+
+    x_counter = x;
+    y_counter = y;
+
+    while(x_counter >= 0 && y_counter >= 0) {
+        if(x_counter != x && y_counter != y) legal_moves.push_back({x_counter, y_counter});        
+        x_counter--;
+        y_counter--;
+    }
+
+    x_counter = x;
+    y_counter = y;
+
+    while(x_counter >= 0 && y_counter < 8) {
+        if(x_counter != x && y_counter != y) legal_moves.push_back({x_counter, y_counter});        
+        x_counter--;
+        y_counter++;
+    }
+
+    x_counter = x;
+    y_counter = y;
+
+    while(x_counter < 8 && y_counter >= 0) {
+        if(x_counter != x && y_counter != y) legal_moves.push_back({x_counter, y_counter});        
+        x_counter++;
+        y_counter--;
+    }
+
+    return legal_moves;
+}
+
 
 //Helper Functions
 
@@ -66,3 +133,10 @@ vector<int> notation_to_int(string notation) {
 
 
 }
+
+vector<int> squareToInt(string notation) {
+    return {(notation[0] - 97), (notation[1] - 49)};
+}
+
+
+
