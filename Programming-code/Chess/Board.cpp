@@ -102,7 +102,12 @@ vector<vector<int>> Board::movement_bishop(string square) {
     return legal_moves;
 }
 
-
+vector<vector<int>> Board::movement_queen(string square) {
+    vector<vector<int>> legal_moves = movement_bishop(square);
+    vector<vector<int>> rook_moves = movement_rook(square);
+    legal_moves.insert(legal_moves.end(), rook_moves.begin(), rook_moves.end());
+    return legal_moves;
+}
 //Helper Functions
 
 vector<int> notation_to_int(string notation) {
