@@ -12,6 +12,8 @@ class Board {
         vector<vector<int>> movement_rook(string square);
         vector<vector<int>> movement_bishop(string square);
         vector<vector<int>> movement_queen(string square);
+        vector<vector<int>> movement_knight(string square);
+        vector<vector<int>> movement_king(string square);
     private:
         vector<vector<Piece>> board;
 };

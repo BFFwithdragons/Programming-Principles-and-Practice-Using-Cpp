@@ -83,5 +83,5 @@ int main() {
 
     Notation e("Re3");
 
-    cout << b.movement_queen("e5") << endl;
+    cout << b.movement_king("e4") << endl;
 }

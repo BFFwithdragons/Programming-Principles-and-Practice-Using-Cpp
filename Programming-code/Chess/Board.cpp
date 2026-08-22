@@ -108,6 +108,40 @@ vector<vector<int>> Board::movement_queen(string square) {
     legal_moves.insert(legal_moves.end(), rook_moves.begin(), rook_moves.end());
     return legal_moves;
 }
+
+vector<vector<int>> Board::movement_knight(string square) {
+    int x = squareToInt(square)[0];
+    int y = squareToInt(square)[1];
+
+    vector<vector<int>> legal_moves;
+    if(x - 1 >= 0  && y + 2 < 8) legal_moves.push_back({x - 1, y + 2});
+    if(x + 1 < 8  && y + 2 < 8) legal_moves.push_back({x + 1, y + 2});
+    if(x + 2 < 8  && y + 1 < 8) legal_moves.push_back({x + 2, y + 1});
+    if(x + 2 < 8  && y - 1 >= 0) legal_moves.push_back({x + 2, y - 1});
+    if(x + 1 < 8  && y - 2 >= 0) legal_moves.push_back({x + 1, y - 2});
+    if(x - 1 < 8  && y - 2 >= 0) legal_moves.push_back({x - 1, y - 2});
+    if(x - 2 >= 0 && y - 1 >= 0) legal_moves.push_back({x - 2, y - 1});
+    if(x - 2 >= 0 && y + 1 < 8) legal_moves.push_back({x - 2, y + 1});
+    return legal_moves;
+}
+
+vector<vector<int>> Board::movement_king(string square) {
+    int x = squareToInt(square)[0];
+    int y = squareToInt(square)[1];
+
+    vector<vector<int>> legal_moves;
+
+    if(y + 1 < 8) legal_moves.push_back({x, y + 1});
+    if(x + 1 < 8 && y + 1 < 8) legal_moves.push_back({x + 1, y + 1});
+    if(x + 1 < 8) legal_moves.push_back({x + 1, y});
+    if(x + 1 < 8 && y - 1 >= 0) legal_moves.push_back({x + 1, y - 1});
+    if(y - 1 >= 0) legal_moves.push_back({x, y - 1});
+    if(x - 1 >= 0 && y - 1 >= 0) legal_moves.push_back({x - 1, y - 1});
+    if(x - 1 >= 0) legal_moves.push_back({x - 1, y});
+    if(x - 1 >= 0 && y + 1 >= 0) legal_moves.push_back({x - 1, y + 1});
+
+    return legal_moves;
+} 
 //Helper Functions
 
 vector<int> notation_to_int(string notation) {
